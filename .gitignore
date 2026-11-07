@@ -1,0 +1,17 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+node_modules/
+*.zip
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+node_modules/

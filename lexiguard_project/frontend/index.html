@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1020"><title>LexiGuard — Write brilliantly. Privately.</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/styles.css"></head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="LexiGuard home"><img src="/assets/logo.svg" alt=""><span>lexi<span class="brand-accent">guard</span><small>YOUR WRITING CO-PILOT</small></span></a>
+  <div class="sidebar-main"><div class="nav-label">WORKSPACE</div>
+  <button class="nav-item active" id="nav-editor"><span class="nav-icon">✦</span> Writing studio <span class="nav-shortcut">⌘1</span></button>
+  <button class="nav-item" id="nav-vault"><span class="nav-icon">▤</span> Secure vault <span class="nav-lock">●</span></button>
+  <div class="nav-label tools-label">QUICK START</div>
+  <button class="nav-item nav-secondary" data-example="email"><span class="nav-icon">✉</span> Professional email</button>
+  <button class="nav-item nav-secondary" data-example="essay"><span class="nav-icon">▦</span> Academic writing</button>
+  <button class="nav-item nav-secondary" data-example="casual"><span class="nav-icon">☷</span> Everyday writing</button>
+  </div>
+  <div class="sidebar-bottom"><div class="privacy-mark"><span class="privacy-glyph">◆</span><div><strong>Private by design</strong><small>Encrypted drafts with AES-256-GCM</small></div></div><div class="sidebar-footer">© 2026 LexiGuard • v1.0</div></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div class="breadcrumbs">Workspace <span>/</span> <strong>Writing studio</strong></div><div class="top-actions"><span class="local-pill"><span class="pulse"></span> LOCAL-FIRST</span><button class="top-icon" id="theme" aria-label="Toggle dark theme" title="Toggle theme">☾</button><div class="avatar">L</div></div></header>
+  <section class="hero"><div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR IDEAS, ELEVATED</div><h1>Great writing starts <em>here.</em></h1><p>Make every word count. Catch mistakes, sharpen your message, and write with confidence.</p></div><div class="hero-deco" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><span>✳</span></div></section>
+  <section class="workbench"><div class="editor-panel"><div class="panel-heading"><div class="heading-title"><span class="heading-icon">✍</span><div><h2>Your document</h2><small>Let your ideas flow. We'll take care of the details.</small></div></div><div class="heading-actions"><span class="autosave"><span></span> Unsaved locally</span><button id="clearBtn" class="ghost-btn">Clear</button></div></div>
+  <div class="editor-toolbar"><div class="toolbar-left"><label for="engineSelect">Writing assistant</label><select id="engineSelect" aria-label="Check engine"><option value="built-in">Instant checks</option><option value="languagetool">LanguageTool (optional)</option></select></div><span class="toolbar-hint">English (US) <span>⌄</span></span></div>
+  <div class="editor-wrap"><textarea id="editor" maxlength="20000" spellcheck="false" aria-label="Writing editor" placeholder="Start writing, paste your text, or choose an example from the sidebar...&#10;&#10;Your next great idea starts with a single sentence."></textarea><div class="editor-corner">✦</div></div>
+  <div class="editor-bottom"><div class="stats"><span><strong id="wordCount">0</strong> words</span><i></i><span><strong id="charCount">0</strong> characters</span><i></i><span id="readTime">0 min read</span></div><span class="save-hint">⌘ + Enter to check</span></div>
+  <div class="editor-actions"><button class="btn-outline" id="saveBtn"><span>♧</span> Encrypt & save</button><div class="action-cluster"><button class="btn-light" id="rewriteBtn"><span>✧</span> Rewrite with AI</button><button class="btn-primary" id="checkBtn"><span>✦</span> Check writing <span class="arrow">↗</span></button></div></div>
+  </div>
+  <div class="results-panel"><div class="results-heading"><div class="results-title"><span class="results-star">✧</span><div><h2>Writing insights</h2><small>Real-time clarity for your words</small></div></div><span class="badge" id="engineBadge">READY</span></div>
+  <div class="score-card"><div class="score-top"><span>OVERALL WRITING SCORE</span><span class="score-icon">✦</span></div><div class="score-main"><div class="score-number"><strong id="scoreValue">—</strong><span>/ 100</span></div><div class="score-ring" id="scoreRing" style="--score:0"><span>✧</span></div></div><p id="scoreText">Your writing score will appear here.</p></div>
+  <div class="insight-summary"><div><span class="summary-dot coral"></span><strong id="issueCount">0</strong><small>Suggestions</small></div><div><span class="summary-dot purple"></span><strong id="sentenceCount">0</strong><small>Sentences</small></div><div><span class="summary-dot mint"></span><strong id="avgWords">0</strong><small>Avg. words/sent.</small></div></div>
+  <div class="suggestions-header"><h3>Suggestions <span id="suggestionTotal">0</span></h3><button id="applyAllBtn" disabled>Apply all ↗</button></div>
+  <div class="suggestions-list" id="suggestions"><div class="empty-state"><div class="empty-image">✧<span>✦</span></div><h4>Ready when you are</h4><p>Enter some text and run a check to get helpful, actionable suggestions.</p></div></div>
+  </div></section>
+  <section class="bottom-strip"><div><span>✦</span><p><strong>Sound like your best self.</strong> Write clearly, communicate confidently.</p></div><button id="copyBtn">Copy text <span>↗</span></button></section>
+  <footer class="footer">Built for thoughtful writing <span>·</span> Your text stays on your own server <span>·</span> No tracking scripts</footer>
+</main></div>
+<div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-header"><div><div class="modal-kicker">PRIVATE WORKSPACE</div><h2 id="modalTitle">Secure draft vault</h2></div><button id="closeModal" aria-label="Close dialog" class="close-modal">×</button></div><div id="modalContent"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><script src="/assets/app.js" defer></script></body></html>
