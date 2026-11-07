@@ -1,154 +1,322 @@
 
+<div align="center">
 
+# ✦ LEXIGUARD
 
+### AI Grammar Assistant · Smarter Writing · Protected Drafts
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2800&pause=1000&color=7C83FD&center=true&vCenter=true&width=780&height=65&lines=Write+with+confidence.;Fix+grammar+with+one+click.;Rewrite+with+optional+AI.;Secure+drafts+with+AES-256-GCM." alt="Animated LexiGuard introduction" />
 
+**An original Grammarly-inspired writing assistant with NLP, optional AI models, and encrypted drafts.**
 
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Cryptography](https://img.shields.io/badge/AES--256--GCM-Encrypted%20Vault-7C3AED?style=for-the-badge)](#-cryptography--secure-draft-vault)
+[![License](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
 
-
-
-
-
-<div align="center"><img src="docs/images/animated-title.gif" width="100%" alt="LexiGuard animated writing correction header." /><img src="docs/images/hero-banner.png" width="100%" alt="LexiGuard branded hero art." />
-✦ LexiGuard — AI Grammar & Writing Assistant
-A Grammarly-inspired writing studio with local-first grammar checks, optional AI rewriting, and encrypted drafts.
-
-
-
-
-
-
-Features · Demo · Get Started · AI Models · Cryptography · API
-
-Project status: Functional local MVP / learning project. It is not an official Grammarly product and does not claim to match Grammarly's production models or service.
+**[Features](#-features) · [Demo](#-writing-demo) · [Installation](#-quick-start) · [AI Models](#-optional-ai-and-languagetool) · [Security](#-cryptography--secure-draft-vault) · [API](#-api-reference)**
 
 </div>
-🎬 Live demo
-<div align="center"> <img src="docs/images/animated-title.gif" alt="Animated example of LexiGuard typing and correcting English grammar." width="840" /> <p><em>Type → analyze → review suggestions → apply corrections.</em></p> <img src="docs/images/demo.gif" alt="Screen recording of the actual LexiGuard writing editor using the built-in grammar engine." width="960" /> </div>
-The animated editor demo uses the real LexiGuard frontend and example responses from the built-in rule engine. Optional transformer inference is not shown in the demo.
 
-✨ Features
-Capability	What it does	Availability
-✍️ Writing studio	Minimal editor with document controls, sample text, and dark theme	Included
-📝 Grammar & spelling	Rule-based spelling, grammar, punctuation, and clarity suggestions	Included
-⚡ One-click fixes	Apply suggestions individually or all together	Included
-📈 Writing insights	Word/character counts, reading estimate, sentence statistics, and heuristic score	Included
-🧠 Transformer rewrite	Optional Hugging Face text-to-text model to propose a whole-text correction	Optional install
-🔎 LanguageTool	Optional deeper grammar checks using a locally installed LanguageTool engine	Optional Java + install
-🔐 Encrypted vault	Password-protected drafts with scrypt key derivation and AES-256-GCM encryption at rest	Included
-🖥️ Local-first backend	FastAPI HTTP service with built-in Swagger documentation	Included
-Why cryptography? Good writing tools should give users meaningful control over their private drafts. LexiGuard adds a local encrypted storage demonstration alongside the editing workflow.
+---
 
-🖼️ Interface preview
-<div align="center"> <img src="docs/images/studio-light.png" alt="LexiGuard light theme: editor, grammar suggestions and writing insights." width="920" /> <p><sub>Writing studio · Light mode</sub></p> <img src="docs/images/studio-dark.png" alt="LexiGuard dark theme writing editor." width="920" /> <p><sub>Writing studio · Dark mode</sub></p> </div>
-🚀 Quick start
-Prerequisites: Python 3.10+, pip, and a modern browser. The built-in grammar checker does not need an API key, an external model, or Java.
+## 🌌 About LexiGuard
 
-Windows PowerShell — from the folder containing backend/ and frontend/:
+**LexiGuard** is a modern, responsive English writing assistant that analyzes text, explains potential grammar errors, recommends corrections, and lets users protect saved drafts with a passphrase.
 
+It is built with a **FastAPI backend**, a **JavaScript frontend**, and optional transformer-based language correction.
+
+> [!NOTE]
+> LexiGuard is an independent, working local MVP. It is not affiliated with Grammarly and does not claim the same accuracy or production capabilities.
+
+## ✨ Features
+
+| | Feature | Description |
+|:--:|---|---|
+| ✍️ | **Writing Studio** | Responsive dashboard, modern editor, dark mode, custom logo |
+| ✅ | **Grammar Checker** | Detects common spelling, grammar, capitalization and punctuation mistakes |
+| ⚡ | **One-click Corrections** | Review individual suggestions and apply fixes |
+| 📊 | **Writing Analytics** | Word count, sentence statistics, reading time and heuristic score |
+| 🧠 | **AI Rewriting** | Optional Hugging Face transformer-based text rewriting |
+| 🔎 | **LanguageTool** | Optional deeper grammar analysis with a local LanguageTool engine |
+| 🔐 | **Encrypted Vault** | AES-256-GCM encrypted document storage |
+| 🛠️ | **REST API** | FastAPI endpoints with interactive Swagger documentation |
+
+## 🎬 Writing Demo
+
+### Before correction
+
+```text
+She have teh wrong adress and i dont recieve the message
+```
+
+### After correction
+
+```diff
+- She have teh wrong adress and i dont recieve the message
++ She has the wrong address and I don't receive the message.
+```
+
+The built-in checker offers suggestions with explanations instead of forcing automatic changes.
+
+### How it works
+
+```mermaid
+flowchart LR
+    A["✍️ Enter Text"] --> B["🔍 Grammar Analysis"]
+    B --> C["💡 View Suggestions"]
+    C --> D["✅ Apply Corrections"]
+    D --> E["🔐 Secure Draft"]
+```
+
+## 🧩 Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript |
+| Backend | Python 3.10+, FastAPI, Uvicorn |
+| Grammar Analysis | Rule-based NLP and regex |
+| Optional NLP | LanguageTool |
+| Optional Machine Learning | Hugging Face Transformers, PyTorch |
+| Encryption | AES-256-GCM |
+| Key Derivation | scrypt |
+| Database | SQLite |
+| Testing | Python unittest |
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TB
+    User["👤 User"] --> UI["✦ LexiGuard Writing Studio"]
+    UI --> API["FastAPI Backend"]
+
+    API --> Grammar["Grammar Engine"]
+    API -. "Optional" .-> LT["LanguageTool"]
+    API -. "Optional" .-> ML["Transformer Rewriter"]
+
+    API --> Vault["Encrypted Draft Vault"]
+    Vault --> KDF["scrypt Key Derivation"]
+    KDF --> AES["AES-256-GCM Encryption"]
+    AES --> DB[("SQLite Database")]
+
+    Grammar --> API
+    LT --> API
+    ML --> API
+    API --> UI
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.10 or later
+- pip
+- Modern web browser
+
+No external API key is necessary for the built-in grammar checker or encrypted vault.
+
+### Windows — VS Code Terminal
+
+```powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
-macOS / Linux:
 
+python -m pip install -r requirements.txt
+
+python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Open the website:
+
+**http://127.0.0.1:8000**
+
+Open API documentation:
+
+**http://127.0.0.1:8000/docs**
+
+### macOS / Linux
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+
 python -m pip install -r requirements.txt
+
 python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
-Open http://127.0.0.1:8000 in your browser, paste an English paragraph, and press Check writing. Explore the API at http://127.0.0.1:8000/docs.
+```
 
-On Windows, if PowerShell blocks script activation, use Command Prompt with .venv\Scripts\activate.bat or run the venv's Python executable directly. Don't change system-wide PowerShell policies just for this project.
+## 🤖 Optional AI and LanguageTool
 
-🤖 Optional advanced language models
-1) Transformer-based rewriting
+### Transformer AI Model
+
+Install optional machine-learning dependencies:
+
+```powershell
 python -m pip install -r requirements-ml.txt
-Restart the server and choose Rewrite with AI. The default model setting is vennify/t5-base-grammar-correction (configurable with LEXIGUARD_ML_MODEL). The first use downloads model weights, so allow additional storage/RAM and an internet connection. Verify that your chosen model remains available and is compatible with the installed transformer pipeline.
+```
 
-Important: The UI shows a proposed rewrite for review; it does not silently replace the draft. Generative outputs can change the meaning of a sentence and should be checked.
+The default transformer is:
 
-2) LanguageTool checking
-Install a compatible Java runtime, then install the separate optional package:
+`vennify/t5-base-grammar-correction`
 
+You can configure another compatible model through:
+
+`LEXIGUARD_ML_MODEL`
+
+Transformer weights are downloaded on first use and require additional storage and memory.
+
+The AI suggests a rewrite for review. It does not silently replace the original document.
+
+### LanguageTool
+
+Install a compatible Java runtime, then run:
+
+```powershell
 python -m pip install -r requirements-language-tool.txt
-Restart the server and select LanguageTool (optional) in the editor. This is a local optional component, not a paid or remote Grammarly API. The first launch may fetch language resources.
+```
 
-🔐 Cryptography & security
-<div align="center"> <img src="docs/images/crypto-flow.svg" alt="Diagram of encryption: passphrase, scrypt derived key, AES-256-GCM and ciphertext stored in SQLite." width="920" /> </div>
-The draft vault uses:
+Restart the application and select LanguageTool from the editor.
 
-A random 16-byte salt and random 12-byte nonce per saved draft.
-scrypt (N=16384, r=8, p=1) to derive a 256-bit key from the user's passphrase.
-AES-256-GCM authenticated encryption for the draft title and body, with the draft ID used as associated authenticated data (AAD).
-SQLite to store ciphertext, salt, nonce, draft ID, and creation time — not passphrases or encryption keys.
-Decrypting a draft requires the original passphrase, which cannot be recovered by the application if lost.
+## 🔐 Cryptography & Secure Draft Vault
 
-[!WARNING]
-Security scope: This is a single-user localhost demonstration, not a production multi-user vault. The backend receives plaintext and passphrases; it is not zero-knowledge or end-to-end encryption. Vault list/delete endpoints lack per-user authentication and authorization. Do not expose the server publicly or use it to store sensitive production information without HTTPS, authentication, access controls, rate limits, backups, and a proper security review.
+LexiGuard combines writing assistance with a demonstration of authenticated document encryption.
 
-🏗️ Architecture
-Project structure
-lexiguard_project/
+### Encryption Workflow
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant Server as LexiGuard Backend
+    participant Crypto as Cryptography Engine
+    participant Database as SQLite
+
+    User->>Server: Document + Passphrase
+    Server->>Crypto: Generate Random Salt and Nonce
+    Crypto->>Crypto: Derive Key Using scrypt
+    Crypto->>Crypto: Encrypt Using AES-256-GCM
+    Crypto->>Database: Store Encrypted Document
+
+    User->>Server: Unlock With Passphrase
+    Server->>Database: Read Encrypted Document
+    Database-->>Crypto: Ciphertext and Metadata
+    Crypto-->>Server: Decrypt and Verify
+    Server-->>User: Restored Document or Error
+```
+
+### Security Features
+
+- **AES-256-GCM:** Authenticated encryption for draft title and content.
+- **scrypt:** Passphrase-based 256-bit key derivation.
+- **Random Salt:** A new 16-byte salt for each draft.
+- **Random Nonce:** A new 12-byte nonce for each draft.
+- **Authenticated Data:** The draft ID is bound to the ciphertext.
+- **Encrypted Database Records:** SQLite stores ciphertext and encryption metadata instead of plaintext document content.
+- **Passphrase Protection:** The database does not store the encryption key or passphrase.
+
+> [!WARNING]
+> This is a single-user localhost security demonstration, not a production multi-user vault. The server receives plaintext and passphrases, so it is not end-to-end or zero-knowledge encryption. Public deployment requires HTTPS, authentication, user authorization, rate limiting, backups, and security testing.
+
+## 📂 Project Structure
+
+```text
+LexiGuard-AI-Grammar-Assistant/
+│
 ├── backend/
-│   ├── main.py                  # FastAPI routes and static app
-│   ├── engine.py                # Built-in checks + optional LanguageTool
-│   ├── ml.py                    # Optional transformer text rewriting
-│   └── secure_store.py          # scrypt, AES-GCM and SQLite
+│   ├── main.py
+│   ├── engine.py
+│   ├── ml.py
+│   └── secure_store.py
+│
 ├── frontend/
 │   ├── index.html
-│   └── assets/                 # JavaScript, CSS, logo and favicon
-├── docs/
-│   ├── architecture.md
-│   ├── GITHUB_PUBLISHING.md
-│   └── images/                 # Banner, screenshots, diagrams, GIFs
-├── scripts/
-│   └── publish-github.ps1
+│   └── assets/
+│       ├── app.js
+│       ├── styles.css
+│       ├── logo.svg
+│       └── favicon.svg
+│
 ├── tests/
 │   └── test_project.py
+│
+├── docs/
+│   └── architecture.md
+│
 ├── requirements.txt
 ├── requirements-ml.txt
 ├── requirements-language-tool.txt
+├── .gitignore
+├── LICENSE
 └── README.md
-🔌 API reference
-Method	Route	Use
-GET	/api/health	Server health
-POST	/api/analyze	Built-in or LanguageTool grammar analysis
-POST	/api/rewrite	Optional local transformer rewrite
-POST	/api/vault	Encrypt and store a draft
-GET	/api/vault	List encrypted draft IDs
-POST	/api/vault/{id}/unlock	Unlock a draft with its passphrase
-DELETE	/api/vault/{id}	Delete an encrypted draft
-GET	/docs	Interactive OpenAPI reference
-Example:
+```
 
+## 🔌 API Reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/health` | Health check |
+| POST | `/api/analyze` | Analyze grammar and spelling |
+| POST | `/api/rewrite` | Optional AI-powered rewrite |
+| POST | `/api/vault` | Encrypt and save a draft |
+| GET | `/api/vault` | List saved encrypted draft IDs |
+| POST | `/api/vault/{id}/unlock` | Unlock a draft |
+| DELETE | `/api/vault/{id}` | Delete a draft |
+| GET | `/docs` | Swagger API documentation |
+
+### Example API Request
+
+```bash
 curl -X POST http://127.0.0.1:8000/api/analyze \
   -H "Content-Type: application/json" \
-  -d '{"text":"i dont recieve teh message.","engine":"built-in"}'
-🧪 Tests
+  -d '{"text":"She have teh wrong adress","engine":"built-in"}'
+```
+
+## 🧪 Testing
+
+Run the bundled tests:
+
+```powershell
 python -m unittest discover -s tests -v
-The bundled tests cover representative grammar rules, secure draft encryption/decryption, and API behavior. They are not a replacement for production security, browser, and load tests.
+```
 
-🗺️ Roadmap
+## 🗺️ Development Roadmap
 
-Responsive original writing studio + custom logo
+- [x] Responsive website and writing studio
+- [x] Grammar and spelling suggestions
+- [x] One-click grammar corrections
+- [x] Writing statistics
+- [x] AES-256-GCM encrypted vault
+- [x] Optional LanguageTool integration
+- [x] Optional transformer model integration
+- [ ] Train and benchmark specialized grammar correction models
+- [ ] Improve correction accuracy and long-document support
+- [ ] Implement authentication and user-specific vaults
+- [ ] Browser extension
+- [ ] Document import/export
+- [ ] Production deployment and security hardening
 
-Built-in grammar checker with one-click fixes
+## 🌱 Contributing
 
-Password-encrypted SQLite draft vault
+Contributions, bug reports, and improvements are welcome.
 
-Optional local LanguageTool and transformer integration hooks
-Fine-tune and evaluate a dedicated grammar-correction model on properly licensed data
-Add precise model correction spans, long-document support, and improved linguistic evaluation
-Add identity, user-specific vault access, HTTPS, rate limits, and deployment security
-Add browser extension, document import/export, and integration tests
-🧑‍💻 Publishing to GitHub
-The full commands are in GITHUB_PUBLISHING.md. A Windows PowerShell helper is included at scripts/publish-github.ps1.
+Please do not commit virtual environments, large machine-learning weights, local databases, or secret configuration files.
 
-📜 License & attribution
-Released under the MIT License. Built as an independent student/developer project inspired by the category of writing assistants. Not affiliated with, endorsed by, or a copy of Grammarly's protected software or branding.
+## 📜 License
 
-<div align="center"> <sub>✦ LexiGuard · Write brilliantly. Privately.</sub> </div>
+Released under the [MIT License](LICENSE).
 
+LexiGuard is an independent project, not affiliated with or endorsed by Grammarly.
 
+---
 
+<div align="center">
 
+### ✦ LexiGuard
+
+**Write brilliantly. Edit confidently. Keep drafts protected.**
+
+[⭐ Star the Repository](https://github.com/Darshan-paapani06/LexiGuard-AI-Grammar-Assistant) · [🐛 Report an Issue](https://github.com/Darshan-paapani06/LexiGuard-AI-Grammar-Assistant/issues)
+
+<sub>Built using Python, NLP, Machine Learning and Cryptography.</sub>
+
+</div>
